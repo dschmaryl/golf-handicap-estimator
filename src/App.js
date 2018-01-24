@@ -8,15 +8,20 @@ export class App extends React.Component {
 
   render() {
     return (
-      <div className="body">
+      <div className="main">
         <header>
-          <h3>In the beginning, there was jack and jack had a groove.</h3>
+          <h3>Golf Handicap Estimator</h3>
+          <p>This can give you a rough estimate of your handicap using only the total scores. Enter as few as one or as many as twenty rounds.</p>
         </header>
         <article>
-          <p>And from this groove came the groove of all grooves.</p>
-          <br />
-          <h4><em>"Let there be HOUSE!"</em></h4>
+          <em>this is where the inputs will be</em>
         </article>
+        <br />
+        <footer>
+          <a href="https://github.com/dschmaryl/golf-handicap-estimator/tree/master">
+            Click here to see it on GitHub.
+          </a>
+        </footer>
       </div>
     );
   }
