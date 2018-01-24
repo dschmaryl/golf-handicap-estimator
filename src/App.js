@@ -6,6 +6,8 @@ export class App extends React.Component {
       <div>
         <p>In the beginning, there was jack, and jack had a groove.</p>
         <p>And from this groove came the groove of all grooves.</p>
+        <br />
+        <p>"Let there be HOUSE!"</p>
       </div>
     );
   }
