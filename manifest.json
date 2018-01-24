@@ -1,0 +1,15 @@
+{
+  "short_name": "golf-handicap-estimator",
+  "name": "Golf Handicap Estimator",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
