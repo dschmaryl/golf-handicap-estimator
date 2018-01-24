@@ -1,8 +1,8 @@
 import React from 'react';
 
-export function ScoreForm(props) {
+export function ScoreAdd(props) {
   return (
-    <div className="score-form">
+    <div className="score-add">
       enter a new score here.
     </div>
   );

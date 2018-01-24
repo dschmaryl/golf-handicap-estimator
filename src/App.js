@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScoreList } from './components/ScoreList';
-import { ScoreForm } from './components/ScoreForm';
+import { ScoreAdd } from './components/ScoreAdd';
 
 export class App extends React.Component {
   constructor() {
@@ -25,7 +25,7 @@ export class App extends React.Component {
         </header>
         <ScoreList scores={this.state.scores} />
         <br />
-        <ScoreForm onSubmitScore={this.onSubmitScore()} />
+        <ScoreAdd onSubmitScore={this.onSubmitScore()} />
         <br />
         <footer>
           <a href="https://github.com/dschmaryl/golf-handicap-estimator">
