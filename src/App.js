@@ -28,9 +28,7 @@ export class App extends React.Component {
         <ScoreForm onSubmitScore={this.onSubmitScore()} />
         <br />
         <footer>
-          <a
-            href="https://github.com/dschmaryl/golf-handicap-estimator/tree/master"
-          >
+          <a href="https://github.com/dschmaryl/golf-handicap-estimator">
             Click here to see it on GitHub.
           </a>
         </footer>
