@@ -3,7 +3,7 @@ import React from 'react';
 export class App extends React.Component {
   render() {
     return (
-      <p>the beginning</p>
+      <p>in the beginning, there was jack</p>
     );
   }
 }
