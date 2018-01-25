@@ -10,7 +10,7 @@ export function ScoreList(props) {
           {scores.map((score, index) => {
             return (
               <li className="score" key={'score-' + index}>
-                <h4>Score #{index}: {score.score}</h4>
+                Round {index + 1}: {score.score}
               </li>
             );
           })}
@@ -20,8 +20,10 @@ export function ScoreList(props) {
   };
 
   return (
-    <div className="score-list">
-      {renderScores(props.scores)}
+    <div className="row">
+      <div className="col-xs-12">
+        {renderScores(props.scores)}
+      </div>
     </div>
   );
 }
