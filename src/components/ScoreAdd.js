@@ -1,6 +1,10 @@
 import React from 'react';
 
-import './ScoreAdd.css';
+const inputStyle = {
+  maxWidth: '80px',
+  margin: 0,
+  padding: 0,
+};
 
 export class ScoreAdd extends React.Component {
   constructor(props) {
@@ -39,6 +43,7 @@ export class ScoreAdd extends React.Component {
           <input
             type="text"
             name="score"
+            style={inputStyle}
             className="form-control"
             value={roundData.score}
             onChange={this.handleInput}
@@ -49,6 +54,7 @@ export class ScoreAdd extends React.Component {
           <input
             type="text"
             name="rating"
+            style={inputStyle}
             className="form-control"
             value={roundData.rating}
             onChange={this.handleInput}
@@ -59,6 +65,7 @@ export class ScoreAdd extends React.Component {
           <input
             type="text"
             name="slope"
+            style={inputStyle}
             className="form-control"
             value={roundData.slope}
             onChange={this.handleInput}
