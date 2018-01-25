@@ -8,9 +8,9 @@ export class App extends React.Component {
     this.state = {scores: []};
   }
 
-  onSubmitScore(newScore) {
+  addScore(newScore) {
     // this.setState({scores: this.state.scores + newScore})
-    console.log('onSubmitScore clicked');
+    console.log('addScore clicked');
   }
 
   render() {
@@ -25,7 +25,7 @@ export class App extends React.Component {
         </header>
         <ScoreList scores={this.state.scores} />
         <br />
-        <ScoreAdd onSubmitScore={this.onSubmitScore()} />
+        <ScoreAdd onClick={this.addScore} />
         <br />
         <footer>
           <a href="https://github.com/dschmaryl/golf-handicap-estimator">
