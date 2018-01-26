@@ -15,8 +15,8 @@ export function Handicap(props) {
   function calcHandicap(scores) {
     const diffs = getDiffs(scores);
     const diffsSum = diffs.reduce((a, b) => a + b, 0);
-    const handicapStr = (diffsSum / diffs.length * .96).toString();
-    return handicapStr.split('').slice(0, handicapStr.indexOf('.') + 1).join('');
+    const handicap = diffsSum / diffs.length * .96;
+    return parseInt((handicap * 10), 10) / 10; // truncate
   }
 
   function showHandicap(scores) {
