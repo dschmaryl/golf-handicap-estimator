@@ -1,29 +1,46 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Div = styled.div`
+  padding-top: 30px;
+`;
+
+const Table = styled.table`
+  text-align: right;
+`;
 
 export function ScoreList(props) {
   function renderScores(scores) {
     if (scores.length === 0) {
-      return 'no scores entered yet'
+      return 'no scores entered yet';
     } else {
       return (
-        <ul>
-          {scores.map((score, index) => {
+        <Table>
+          <tr>
+            <th>Round</th>
+            <th>Score</th>
+            <th>Rating</th>
+            <th>Slope</th>
+          </tr>
+
+          {scores.map((s, index) => {
             return (
-              <li className="score" key={'score-' + index}>
-                Round {index + 1}: {score.score}
-              </li>
+              <tr key={'score-' + index}>
+                <td>{index + 1}</td>
+                <td>{s.score}</td>
+                <td>{s.rating}</td>
+                <td>{s.slope}</td>
+              </tr>
             );
           })}
-        </ul>
+        </Table>
       );
     }
-  };
+  }
 
   return (
-    <div className="row">
-      <div className="col-xs-12">
-        {renderScores(props.scores)}
-      </div>
-    </div>
+    <Div>
+      {renderScores(props.scores)}
+    </Div>
   );
 }

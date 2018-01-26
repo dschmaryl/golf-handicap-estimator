@@ -1,16 +1,21 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Foot = styled.footer`
+  padding-top: 20px;
+`;
+
+const Anchor = styled.a`
+  text-decoration: none;
+  color: #BBB;
+`;
 
 export function Footer(props) {
   return (
-    <footer className="row">
-      <div className="col-xs-12">
-        <a
-          href="https://github.com/dschmaryl/golf-handicap-estimator"
-          style={{textDecoration: 'none', color: '#BBB'}}
-        >
-          Click here to see it on GitHub.
-        </a>
-      </div>
-    </footer>
+    <Foot>
+      <Anchor href="https://github.com/dschmaryl/golf-handicap-estimator">
+        Click here to see it on GitHub.
+      </Anchor>
+    </Foot>
   );
 }

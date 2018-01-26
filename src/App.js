@@ -1,8 +1,8 @@
 import React from 'react';
 import { Header } from './components/Header';
 import { Handicap } from './components/Handicap';
-import { ScoreList } from './components/ScoreList';
 import { ScoreAdd } from './components/ScoreAdd';
+import { ScoreList } from './components/ScoreList';
 import { Footer } from './components/Footer';
 
 export class App extends React.Component {

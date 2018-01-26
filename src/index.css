@@ -6,8 +6,3 @@ body {
   line-height: 1.6;
   color: #555;
 }
-
-header, footer, div {
-  padding-top: 6px;
-  padding-bottom: 6px;
-}

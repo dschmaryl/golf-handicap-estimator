@@ -1,31 +1,59 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const inputStyle = {
-  maxWidth: '80px',
-  margin: 0,
-  padding: 0,
-};
+const Input = styled.input`
+  text-align: right;
+  padding-right: 4px;
+  margin: 0 10px 0 6px;
+  max-width: 40px;
+`;
+
+const Button = styled.button`
+  margin-left: 10px;
+`;
 
 export class ScoreAdd extends React.Component {
   constructor(props) {
     super(props);
     this.state = {score: '', rating: '', slope: ''};
-    this.handleInput = this.handleInput.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleInput(event) {
+  renderInput(name, value) {
+    return (
+      <span>
+        <label>{name}:</label>
+        <Input
+          type="text"
+          name={name}
+          value={value}
+          onChange={this.handleChange}
+        />
+      </span>
+    );
+  }
+
+  handleChange(event) {
     switch(event.target.name) {
       case 'score':
-        this.setState({score: event.target.value});
+        const score = parseInt(event.target.value, 10);
+        if (!isNaN(score)) {
+          this.setState({score: score});
+        }
         break;
       case 'rating':
-        this.setState({rating: event.target.value});
+        const rating = parseFloat(event.target.value);
+        if (!isNaN(rating)) {
+          this.setState({rating: rating});
+        }
         break;
       case 'slope':
-        this.setState({slope: event.target.value});
+        const slope = parseInt(event.target.value, 10);
+        if (!isNaN(slope)) {
+          this.setState({slope: slope});
+        }
         break;
       default:
-
     }
   }
 
@@ -34,51 +62,16 @@ export class ScoreAdd extends React.Component {
       'score': this.state.score,
       'rating': this.state.rating,
       'slope': this.state.slope
-    }
+    };
 
     return (
-      <div className="row">
-        <div className="col-xs-3">
-          <label>score:</label>
-          <input
-            type="text"
-            name="score"
-            style={inputStyle}
-            className="form-control"
-            value={roundData.score}
-            onChange={this.handleInput}
-          />
-        </div>
-        <div className="col-xs-3">
-          <label>rating:</label>
-          <input
-            type="text"
-            name="rating"
-            style={inputStyle}
-            className="form-control"
-            value={roundData.rating}
-            onChange={this.handleInput}
-          />
-        </div>
-        <div className="col-xs-3">
-          <label>slope:</label>
-          <input
-            type="text"
-            name="slope"
-            style={inputStyle}
-            className="form-control"
-            value={roundData.slope}
-            onChange={this.handleInput}
-          />
-        </div>
-        <div className="col-xs-3">
-          <button
-            className="btn"
-            onClick={() => this.props.onClick(roundData)}
-          >
-            Add Score
-          </button>
-        </div>
+      <div>
+        {this.renderInput("score", roundData.score)}
+        {this.renderInput("rating", roundData.rating)}
+        {this.renderInput("slope", roundData.slope)}
+        <Button onClick={() => this.props.onClick(roundData)}>
+          Add Score
+        </Button>
       </div>
     );
   }
