@@ -24,8 +24,13 @@ export function Handicap(props) {
     if (scores.length === 0) {
       return 'Please enter at least one score and as many as 20.';
     } else {
-      const handicap = calcHandicap(scores);
-      return `Your handicap is approximately: ${handicap}`;
+      let handicap = Math.min(calcHandicap(scores), 50);
+      if (handicap < 0) {
+        handicap = Math.min(Math.abs(handicap), 5);
+        return `Your handicap is approximately: +${handicap}`;
+      } else {
+        return `Your handicap is approximately: ${handicap}`;
+      }
     }
   }
 

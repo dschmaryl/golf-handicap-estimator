@@ -71,7 +71,7 @@ export class ScoreAdd extends React.Component {
       'slope': this.state.slope ? this.state.slope : 113
     };
 
-    if (roundData.score > 0) {
+    if (50 <= roundData.score && roundData.score <= 200) {
       return this.props.onClick(roundData);
     }
   }
