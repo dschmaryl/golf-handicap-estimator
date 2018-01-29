@@ -60,8 +60,8 @@ export class ScoreAdd extends React.Component {
   render() {
     const roundData = {
       'score': this.state.score,
-      'rating': this.state.rating,
-      'slope': this.state.slope
+      'rating': this.state.rating ? this.state.rating : 72,
+      'slope': this.state.slope ? this.state.slope : 113
     };
 
     return (

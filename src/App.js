@@ -10,14 +10,13 @@ export class App extends React.Component {
     super();
     this.state = {
       scores: [],
-      msg: 'Please enter at least one score.',
-      handicap: ''
     };
     this.addScore = this.addScore.bind(this);
   }
 
   addScore(roundData) {
     const scores = this.state.scores;
+
     this.setState({scores: scores.concat(roundData)});
   }
 
