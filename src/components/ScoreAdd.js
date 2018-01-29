@@ -15,8 +15,9 @@ const Button = styled.button`
 export class ScoreAdd extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {score: '', rating: '', slope: ''};
+    this.state = {score: '', rating: 72, slope: 113};
     this.handleChange = this.handleChange.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   renderInput(name, value) {
@@ -27,6 +28,7 @@ export class ScoreAdd extends React.Component {
           type="text"
           name={name}
           value={value}
+          onKeyDown={this.handleKeyDown}
           onChange={this.handleChange}
         />
       </span>
@@ -34,42 +36,52 @@ export class ScoreAdd extends React.Component {
   }
 
   handleChange(event) {
+    function checkNum(num) {
+      return isNaN(num) ? '' : num;
+    }
     switch(event.target.name) {
       case 'score':
         const score = parseInt(event.target.value, 10);
-        if (!isNaN(score)) {
-          this.setState({score: score});
-        }
+        this.setState({score: checkNum(score)});
         break;
       case 'rating':
         const rating = parseFloat(event.target.value);
-        if (!isNaN(rating)) {
-          this.setState({rating: rating});
-        }
+        this.setState({rating: checkNum(rating)});
         break;
       case 'slope':
         const slope = parseInt(event.target.value, 10);
-        if (!isNaN(slope)) {
-          this.setState({slope: slope});
-        }
+        this.setState({slope: checkNum(slope)});
         break;
       default:
     }
   }
 
-  render() {
+  handleKeyDown(event) {
+    if (event.keyCode === 13) {
+      console.log('enter pressed');
+      this.addScore();
+    }
+  }
+
+  addScore() {
     const roundData = {
       'score': this.state.score,
-      'rating': this.state.rating ? this.state.rating : 72,
-      'slope': this.state.slope ? this.state.slope : 113
+      'rating': this.state.rating,
+      'slope': this.state.slope
     };
 
+    if (roundData.score > 0) {
+      return this.props.onClick(roundData);
+    }
+  }
+
+  render() {
     return (
       <div>
-        {this.renderInput("score", roundData.score)}
-        {this.renderInput("rating", roundData.rating)}
-        {this.renderInput("slope", roundData.slope)}
-        <Button onClick={() => this.props.onClick(roundData)}>
+        {this.renderInput("score", this.state.score)}
+        {this.renderInput("rating", this.state.rating)}
+        {this.renderInput("slope", this.state.slope)}
+        <Button onClick={this.addScore}>
           Add Score
         </Button>
       </div>

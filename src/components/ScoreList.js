@@ -16,23 +16,26 @@ export function ScoreList(props) {
     } else {
       return (
         <Table>
-          <tr>
-            <th>Round</th>
-            <th>Score</th>
-            <th>Rating</th>
-            <th>Slope</th>
-          </tr>
-
-          {scores.map((s, index) => {
-            return (
-              <tr key={'score-' + index}>
-                <td>{index + 1}</td>
-                <td>{s.score}</td>
-                <td>{s.rating}</td>
-                <td>{s.slope}</td>
-              </tr>
-            );
-          })}
+          <thead>
+            <tr>
+              <th>Round</th>
+              <th>Score</th>
+              <th>Rating</th>
+              <th>Slope</th>
+            </tr>
+          </thead>
+          <tbody>
+            {scores.map((s, index) => {
+              return (
+                <tr key={'score-' + index}>
+                  <td>{index + 1}</td>
+                  <td>{s.score}</td>
+                  <td>{s.rating}</td>
+                  <td>{s.slope}</td>
+                </tr>
+              );
+            })}
+          </tbody>
         </Table>
       );
     }

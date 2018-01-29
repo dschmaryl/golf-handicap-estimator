@@ -21,7 +21,7 @@ export function Handicap(props) {
 
   function showHandicap(scores) {
     if (scores.length === 0) {
-      return 'Please enter at least one score.';
+      return 'Please enter at least one score and as many as 20.';
     } else {
       const handicap = calcHandicap(scores);
       return `Your handicap is approximately ${handicap}`;
