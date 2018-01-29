@@ -8,21 +8,18 @@ import { Footer } from './components/Footer';
 export class App extends React.Component {
   constructor() {
     super();
-    this.state = {
-      scores: [],
-    };
+    this.state = {scores: []};
     this.addScore = this.addScore.bind(this);
     this.removeScore = this.removeScore.bind(this);
   }
 
   addScore(roundData) {
-    const scores = this.state.scores;
-    this.setState({scores: scores.slice(-19).concat(roundData)});
+    const scores = this.state.scores.slice(-19).concat(roundData);
+    this.setState({scores: scores});
   }
 
   removeScore(index) {
-    let scores = this.state.scores;
-    scores = scores.filter((v, i) => i !== index);
+    const scores = this.state.scores.filter((v, i) => i !== index);
     this.setState({scores: scores});
   }
 
