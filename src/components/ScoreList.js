@@ -7,6 +7,7 @@ const Div = styled.div`
 
 const Table = styled.table`
   text-align: right;
+  width: 280px;
 `;
 
 export function ScoreList(props) {
