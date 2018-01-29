@@ -17,7 +17,7 @@ export class App extends React.Component {
 
   addScore(roundData) {
     const scores = this.state.scores;
-    this.setState({scores: scores.concat(roundData)});
+    this.setState({scores: scores.slice(-19).concat(roundData)});
   }
 
   removeScore(index) {

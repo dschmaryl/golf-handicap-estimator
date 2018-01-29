@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Div = styled.div`
-  padding: 10px 0 20px 0;
+  padding: 10px 0 30px 0;
+  font-size: 16px;
 `;
 
 export function Handicap(props) {
@@ -24,7 +25,7 @@ export function Handicap(props) {
       return 'Please enter at least one score and as many as 20.';
     } else {
       const handicap = calcHandicap(scores);
-      return `Your handicap is approximately ${handicap}`;
+      return `Your handicap is approximately: ${handicap}`;
     }
   }
 
