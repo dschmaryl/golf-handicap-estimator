@@ -15,12 +15,13 @@ const Button = styled.button`
 export class ScoreAdd extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {score: '', rating: 72, slope: 113};
+    this.state = {score: '', rating: '', slope: ''};
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.addScore = this.addScore.bind(this);
   }
 
-  renderInput(name, value) {
+  renderInput(name, value, placeholder) {
     return (
       <span>
         <label>{name}:</label>
@@ -28,6 +29,7 @@ export class ScoreAdd extends React.Component {
           type="text"
           name={name}
           value={value}
+          placeholder={placeholder}
           onKeyDown={this.handleKeyDown}
           onChange={this.handleChange}
         />
@@ -58,7 +60,6 @@ export class ScoreAdd extends React.Component {
 
   handleKeyDown(event) {
     if (event.keyCode === 13) {
-      console.log('enter pressed');
       this.addScore();
     }
   }
@@ -66,8 +67,8 @@ export class ScoreAdd extends React.Component {
   addScore() {
     const roundData = {
       'score': this.state.score,
-      'rating': this.state.rating,
-      'slope': this.state.slope
+      'rating': this.state.rating ? this.state.rating : 72,
+      'slope': this.state.slope ? this.state.slope : 113
     };
 
     if (roundData.score > 0) {
@@ -79,8 +80,8 @@ export class ScoreAdd extends React.Component {
     return (
       <div>
         {this.renderInput("score", this.state.score)}
-        {this.renderInput("rating", this.state.rating)}
-        {this.renderInput("slope", this.state.slope)}
+        {this.renderInput("rating", this.state.rating, '72')}
+        {this.renderInput("slope", this.state.slope, '113')}
         <Button onClick={this.addScore}>
           Add Score
         </Button>
