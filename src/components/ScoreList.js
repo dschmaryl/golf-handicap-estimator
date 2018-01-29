@@ -7,7 +7,15 @@ const Div = styled.div`
 
 const Table = styled.table`
   text-align: right;
-  width: 280px;
+`;
+
+const Th = styled.th`
+  width: 72px;
+`;
+
+const Button = styled.button`
+  display: block;
+  margin: auto;
 `;
 
 export function ScoreList(props) {
@@ -19,10 +27,11 @@ export function ScoreList(props) {
         <Table>
           <thead>
             <tr>
-              <th>Round</th>
-              <th>Score</th>
-              <th>Rating</th>
-              <th>Slope</th>
+              <Th>Round</Th>
+              <Th>Score</Th>
+              <Th>Rating</Th>
+              <Th>Slope</Th>
+              <Th>Remove</Th>
             </tr>
           </thead>
           <tbody>
@@ -33,6 +42,11 @@ export function ScoreList(props) {
                   <td>{s.score}</td>
                   <td>{s.rating}</td>
                   <td>{s.slope}</td>
+                  <td>
+                    <Button onClick={() => props.removeScore(index)}>
+                      X
+                    </Button>
+                  </td>
                 </tr>
               );
             })}

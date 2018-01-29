@@ -12,12 +12,18 @@ export class App extends React.Component {
       scores: [],
     };
     this.addScore = this.addScore.bind(this);
+    this.removeScore = this.removeScore.bind(this);
   }
 
   addScore(roundData) {
     const scores = this.state.scores;
-
     this.setState({scores: scores.concat(roundData)});
+  }
+
+  removeScore(index) {
+    let scores = this.state.scores;
+    scores = scores.filter((v, i) => i !== index);
+    this.setState({scores: scores});
   }
 
   render() {
@@ -26,7 +32,7 @@ export class App extends React.Component {
         <Header />
         <Handicap scores={this.state.scores} />
         <ScoreAdd onClick={this.addScore} />
-        <ScoreList scores={this.state.scores} />
+        <ScoreList scores={this.state.scores} removeScore={this.removeScore}/>
         <Footer />
       </div>
     );
