@@ -21,6 +21,41 @@ export class ScoreAdd extends React.Component {
     this.addScore = this.addScore.bind(this);
   }
 
+  handleChange(event) {
+    switch(event.target.name) {
+      case 'score':
+        this.setState({score: event.target.value});
+        break;
+      case 'rating':
+        this.setState({rating: event.target.value});
+        break;
+      case 'slope':
+        this.setState({slope: event.target.value});
+        break;
+      default:
+    }
+  }
+
+  handleKeyDown(event) {
+    if (event.keyCode === 13) {
+      this.addScore();
+    }
+  }
+
+  addScore() {
+    function asNum(num) {
+      return isNaN(num) ? '' : num;
+    }
+    const roundData = {
+      'score': asNum(parseInt(this.state.score, 10)),
+      'rating': this.state.rating ? asNum(parseFloat(this.state.rating)) : 72,
+      'slope': this.state.slope ? asNum(parseInt(this.state.slope, 10)) : 113
+    };
+    if (50 <= roundData.score && roundData.score <= 200) {
+      return this.props.onClick(roundData);
+    }
+  }
+
   renderInput(name, value, placeholder) {
     return (
       <span>
@@ -35,45 +70,6 @@ export class ScoreAdd extends React.Component {
         />
       </span>
     );
-  }
-
-  handleChange(event) {
-    function checkNum(num) {
-      return isNaN(num) ? '' : num;
-    }
-    switch(event.target.name) {
-      case 'score':
-        const score = parseInt(event.target.value, 10);
-        this.setState({score: checkNum(score)});
-        break;
-      case 'rating':
-        const rating = parseFloat(event.target.value);
-        this.setState({rating: checkNum(rating)});
-        break;
-      case 'slope':
-        const slope = parseInt(event.target.value, 10);
-        this.setState({slope: checkNum(slope)});
-        break;
-      default:
-    }
-  }
-
-  handleKeyDown(event) {
-    if (event.keyCode === 13) {
-      this.addScore();
-    }
-  }
-
-  addScore() {
-    const roundData = {
-      'score': this.state.score,
-      'rating': this.state.rating ? this.state.rating : 72,
-      'slope': this.state.slope ? this.state.slope : 113
-    };
-
-    if (50 <= roundData.score && roundData.score <= 200) {
-      return this.props.onClick(roundData);
-    }
   }
 
   render() {
