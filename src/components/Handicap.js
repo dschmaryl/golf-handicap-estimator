@@ -14,7 +14,7 @@ export function Handicap(props) {
   function getDiffs(scores) {
     return scores.map(s => {
       return (s.score - s.rating) * 113 / s.slope;
-    }).sort().reverse().slice(Math.floor(scores.length / 2));
+    }).sort((a, b) => a - b).reverse().slice(Math.floor(scores.length / 2));
   }
 
   function calcHandicap(scores) {
