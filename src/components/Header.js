@@ -8,12 +8,12 @@ const Head = styled.header`
 
 const Anchor = styled.a`
   text-decoration: none;
-  color: #AAA;
+  color: #999;
 `;
 
 export function Header(props) {
   return (
-    <Head className="row">
+    <Head>
       <h1>Golf Handicap Estimator</h1>
       <p>
         This can give you a rough estimate of your handicap using only the total scores. The official algorithm as specified by the USGA is a little more complicated since it involves adjusting scores based on the player's current handicap, but this can give you an idea of what your handicap would be.
