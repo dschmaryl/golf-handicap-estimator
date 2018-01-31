@@ -3,7 +3,11 @@ import styled from 'styled-components';
 
 const Div = styled.div`
   padding: 10px 0 30px 0;
-  font-size: 16px;
+  font-size: 18px;
+`;
+
+const Handi = styled.span`
+  font-weight: bold;
 `;
 
 export function Handicap(props) {
@@ -25,8 +29,13 @@ export function Handicap(props) {
       return 'Please enter at least one score and as many as 20.';
     } else {
       const handicapNum = Math.max(-5, Math.min(calcHandicap(scores), 50));
-      const handicapStr = ('' + handicapNum).replace('-', '+')
-      return 'Your handicap is approximately: ' + handicapStr;
+      const handicapStr = ('' + handicapNum).replace('-', '+');
+      return (
+        <span>
+          {'Your handicap is approximately: '}
+          <Handi>{handicapStr}</Handi>
+        </span>
+      );
     }
   }
 

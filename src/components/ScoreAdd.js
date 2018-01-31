@@ -1,15 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const Label = styled.label`
+  font-weight: bold;
+  padding-left: 4px;
+`;
+
 const Input = styled.input`
   text-align: right;
   padding-right: 4px;
   margin: 0 10px 0 6px;
-  max-width: 40px;
+  width: 32px;
 `;
 
 const Button = styled.button`
+  color: #555;
+  font-weight: bold;
   margin-left: 10px;
+  width: 50px;
 `;
 
 export class ScoreAdd extends React.Component {
@@ -23,13 +31,13 @@ export class ScoreAdd extends React.Component {
 
   handleChange(event) {
     switch(event.target.name) {
-      case 'score':
+      case 'Score':
         this.setState({score: event.target.value});
         break;
-      case 'rating':
+      case 'Rating':
         this.setState({rating: event.target.value});
         break;
-      case 'slope':
+      case 'Slope':
         this.setState({slope: event.target.value});
         break;
       default:
@@ -59,7 +67,7 @@ export class ScoreAdd extends React.Component {
   renderInput(name, value, placeholder) {
     return (
       <span>
-        <label>{name}:</label>
+        <Label>{name}:</Label>
         <Input
           type="text"
           name={name}
@@ -75,12 +83,10 @@ export class ScoreAdd extends React.Component {
   render() {
     return (
       <div>
-        {this.renderInput("score", this.state.score)}
-        {this.renderInput("rating", this.state.rating, '72')}
-        {this.renderInput("slope", this.state.slope, '113')}
-        <Button onClick={this.addScore}>
-          Add Score
-        </Button>
+        {this.renderInput("Score", this.state.score)}
+        {this.renderInput("Rating", this.state.rating, '72')}
+        {this.renderInput("Slope", this.state.slope, '113')}
+        <Button onClick={this.addScore}>Add</Button>
       </div>
     );
   }

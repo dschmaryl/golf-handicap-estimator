@@ -5,15 +5,18 @@ const Div = styled.div`
   padding-top: 30px;
 `;
 
-const Table = styled.table`
-  text-align: right;
-`;
-
 const Th = styled.th`
+  text-align: center;
   width: 72px;
 `;
 
+const Td = styled.td`
+  text-align: center;
+`;
+
 const Button = styled.button`
+  color: #555;
+  font-weight: bold;
   display: block;
   margin: auto;
 `;
@@ -24,34 +27,34 @@ export function ScoreList(props) {
       return 'no scores entered yet';
     } else {
       return (
-        <Table>
+        <table>
           <thead>
             <tr>
               <Th>Round</Th>
               <Th>Score</Th>
               <Th>Rating</Th>
               <Th>Slope</Th>
-              <Th>Remove</Th>
+              <Th>Delete</Th>
             </tr>
           </thead>
           <tbody>
             {scores.map((s, index) => {
               return (
                 <tr key={'score-' + index}>
-                  <td>{index + 1}</td>
-                  <td>{s.score}</td>
-                  <td>{s.rating}</td>
-                  <td>{s.slope}</td>
-                  <td>
+                  <Td>{index + 1}</Td>
+                  <Td>{s.score}</Td>
+                  <Td>{s.rating}</Td>
+                  <Td>{s.slope}</Td>
+                  <Td>
                     <Button onClick={() => props.removeScore(index)}>
                       X
                     </Button>
-                  </td>
+                  </Td>
                 </tr>
               );
             })}
           </tbody>
-        </Table>
+        </table>
       );
     }
   }
