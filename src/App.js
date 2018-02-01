@@ -25,7 +25,7 @@ export class App extends React.Component {
 
   render() {
     return (
-      <div className="main">
+      <div>
         <Header />
         <Handicap scores={this.state.scores} />
         <ScoreAdd onClick={this.addScore} />
