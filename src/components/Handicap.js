@@ -26,7 +26,7 @@ export function Handicap(props) {
 
   function showHandicap(scores) {
     if (scores.length === 0) {
-      return 'Please enter at least one score and as many as 20.';
+      return 'Enter at least one score and as many as 20.';
     } else {
       const handicapNum = Math.max(-5, Math.min(calcHandicap(scores), 50));
       const handicapStr = ('' + handicapNum).replace('-', '+');

@@ -8,7 +8,7 @@ const Label = styled.label`
 
 const Input = styled.input`
   text-align: right;
-  padding-right: 4px;
+  padding: 2px 4px 2px 0;
   margin: 0 10px 0 6px;
   width: 32px;
 `;
