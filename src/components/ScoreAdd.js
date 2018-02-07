@@ -60,6 +60,7 @@ export class ScoreAdd extends React.Component {
       'slope': this.state.slope ? asNum(parseInt(this.state.slope, 10)) : 113
     };
     if (50 <= roundData.score && roundData.score <= 200) {
+      this.setState({score: ''})
       return this.props.onClick(roundData);
     }
   }
