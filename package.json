@@ -1,6 +1,6 @@
 {
   "name": "golf-handicap-estimator",
-  "homepage": "http://dschmaryl.github.io/golf-handicap-estimator",
+  "homepage": "https://dschmaryl.github.io/golf-handicap-estimator",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
