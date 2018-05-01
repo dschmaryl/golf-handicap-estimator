@@ -46,9 +46,7 @@ export function ScoreList(props) {
                   <Td>{s.rating}</Td>
                   <Td>{s.slope}</Td>
                   <Td>
-                    <Button onClick={() => props.removeScore(index)}>
-                      X
-                    </Button>
+                    <Button onClick={() => props.removeScore(index)}>X</Button>
                   </Td>
                 </tr>
               );
@@ -59,9 +57,5 @@ export function ScoreList(props) {
     }
   }
 
-  return (
-    <Div>
-      {renderScores(props.scores)}
-    </Div>
-  );
+  return <Div>{renderScores(props.scores)}</Div>;
 }

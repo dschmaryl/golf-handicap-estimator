@@ -7,7 +7,7 @@ const Foot = styled.footer`
 
 const Anchor = styled.a`
   text-decoration: none;
-  color: #BBB;
+  color: #bbb;
 `;
 
 export function Footer(props) {
