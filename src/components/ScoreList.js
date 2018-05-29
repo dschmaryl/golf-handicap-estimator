@@ -21,12 +21,12 @@ const Button = styled.button`
   margin: auto;
 `;
 
-export function ScoreList(props) {
-  function renderScores(scores) {
-    if (scores.length === 0) {
-      return 'no scores entered yet';
-    } else {
-      return (
+export const ScoreList = ({ scores, dispatch }) => {
+  if (scores.length === 0) {
+    return <Div>no scores entered yet</Div>;
+  } else {
+    return (
+      <Div>
         <table>
           <thead>
             <tr>
@@ -38,24 +38,26 @@ export function ScoreList(props) {
             </tr>
           </thead>
           <tbody>
-            {scores.map((s, index) => {
-              return (
-                <tr key={'score-' + index}>
-                  <Td>{index + 1}</Td>
-                  <Td>{s.score}</Td>
-                  <Td>{s.rating}</Td>
-                  <Td>{s.slope}</Td>
-                  <Td>
-                    <Button onClick={() => props.removeScore(index)}>X</Button>
-                  </Td>
-                </tr>
-              );
-            })}
+            {scores.map((score, index) => (
+              <tr key={'score-' + index}>
+                <Td>{index + 1}</Td>
+                <Td>{score.score}</Td>
+                <Td>{score.rating}</Td>
+                <Td>{score.slope}</Td>
+                <Td>
+                  <Button
+                    onClick={() =>
+                      dispatch({ type: 'REMOVE_SCORE', index: index })
+                    }
+                  >
+                    X
+                  </Button>
+                </Td>
+              </tr>
+            ))}
           </tbody>
         </table>
-      );
-    }
+      </Div>
+    );
   }
-
-  return <Div>{renderScores(props.scores)}</Div>;
-}
+};

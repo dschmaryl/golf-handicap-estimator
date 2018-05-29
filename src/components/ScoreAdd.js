@@ -21,12 +21,12 @@ const Button = styled.button`
 `;
 
 export class ScoreAdd extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { score: '', rating: '', slope: '' };
+  constructor() {
+    super();
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.addScore = this.addScore.bind(this);
+    this.state = { score: '', rating: '', slope: '' };
   }
 
   handleChange(event) {
@@ -51,17 +51,24 @@ export class ScoreAdd extends React.Component {
   }
 
   addScore() {
-    function asNum(num) {
-      return isNaN(num) ? '' : num;
-    }
-    const roundData = {
-      score: asNum(parseInt(this.state.score, 10)),
-      rating: this.state.rating ? asNum(parseFloat(this.state.rating)) : 72,
-      slope: this.state.slope ? asNum(parseInt(this.state.slope, 10)) : 113
-    };
-    if (50 <= roundData.score && roundData.score <= 200) {
+    const asNum = num => (isNaN(num) ? '' : num);
+
+    const score = asNum(parseInt(this.state.score, 10));
+    const rating = this.state.rating
+      ? asNum(parseFloat(this.state.rating))
+      : 72;
+    const slope = this.state.slope
+      ? asNum(parseInt(this.state.slope, 10))
+      : 113;
+
+    if (50 <= score && score <= 200) {
       this.setState({ score: '' });
-      return this.props.onClick(roundData);
+      this.props.dispatch({
+        type: 'ADD_SCORE',
+        score: score,
+        rating: rating,
+        slope: slope
+      });
     }
   }
 

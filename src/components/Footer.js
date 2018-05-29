@@ -8,14 +8,15 @@ const Foot = styled.footer`
 const Anchor = styled.a`
   text-decoration: none;
   color: #bbb;
+  :hover {
+    color: #555;
+  }
 `;
 
-export function Footer(props) {
-  return (
-    <Foot>
-      <Anchor href="https://github.com/dschmaryl/golf-handicap-estimator">
-        Click here to see it on GitHub.
-      </Anchor>
-    </Foot>
-  );
-}
+export const Footer = () => (
+  <Foot>
+    <Anchor href="https://github.com/dschmaryl/golf-handicap-estimator">
+      Click here to see it on GitHub.
+    </Anchor>
+  </Foot>
+);

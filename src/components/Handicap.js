@@ -10,38 +10,17 @@ const Handi = styled.span`
   font-weight: bold;
 `;
 
-export function Handicap(props) {
-  function getDiffs(scores) {
-    return scores
-      .map(s => {
-        return (s.score - s.rating) * 113 / s.slope;
-      })
-      .sort((a, b) => a - b)
-      .reverse()
-      .slice(Math.floor(scores.length / 2));
-  }
-
-  function calcHandicap(scores) {
-    const diffs = getDiffs(scores);
-    const diffsSum = diffs.reduce((a, b) => a + b, 0);
-    const handicap = diffsSum / diffs.length * 0.96;
-    return parseInt(handicap * 10, 10) / 10; // truncate
-  }
-
-  function showHandicap(scores) {
-    if (scores.length === 0) {
-      return 'Enter at least one score and as many as 20.';
-    } else {
-      const handicapNum = Math.max(-5, Math.min(calcHandicap(scores), 50));
-      const handicapStr = ('' + handicapNum).replace('-', '+');
-      return (
+export const Handicap = ({ handicap }) => {
+  if (handicap == null) {
+    return <Div>Enter at least one score and as many as 20.</Div>;
+  } else {
+    return (
+      <Div>
         <span>
           {'Your handicap is approximately: '}
-          <Handi>{handicapStr}</Handi>
+          <Handi>{('' + handicap).replace('-', '+')}</Handi>
         </span>
-      );
-    }
+      </Div>
+    );
   }
-
-  return <Div>{showHandicap(props.scores)}</Div>;
-}
+};
