@@ -63,12 +63,7 @@ export class ScoreAdd extends React.Component {
 
     if (50 <= score && score <= 200) {
       this.setState({ score: '' });
-      this.props.dispatch({
-        type: 'ADD_SCORE',
-        score: score,
-        rating: rating,
-        slope: slope
-      });
+      this.props.addScore(score, rating, slope);
     }
   }
 
