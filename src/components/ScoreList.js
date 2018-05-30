@@ -21,7 +21,7 @@ const Button = styled.button`
   margin: auto;
 `;
 
-export const ScoreList = ({ scores, dispatch }) => {
+export const ScoreList = ({ scores, removeScore }) => {
   if (scores.length === 0) {
     return <Div>no scores entered yet</Div>;
   } else {
@@ -45,13 +45,7 @@ export const ScoreList = ({ scores, dispatch }) => {
                 <Td>{score.rating}</Td>
                 <Td>{score.slope}</Td>
                 <Td>
-                  <Button
-                    onClick={() =>
-                      dispatch({ type: 'REMOVE_SCORE', index: index })
-                    }
-                  >
-                    X
-                  </Button>
+                  <Button onClick={() => removeScore(index)}>X</Button>
                 </Td>
               </tr>
             ))}
