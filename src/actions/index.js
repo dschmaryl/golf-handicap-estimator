@@ -5,4 +5,4 @@ export const addScore = (score, rating, slope) => ({
   slope
 });
 
-export const removeScore = index => ({ type: 'REMOVE_SCORE', index: index });
+export const removeScore = index => ({ type: 'REMOVE_SCORE', index });
