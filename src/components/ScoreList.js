@@ -37,17 +37,19 @@ export const ScoreList = ({ scores, removeScore }) =>
           </tr>
         </thead>
         <tbody>
-          {scores.map((score, index) => (
-            <tr key={'score-' + index}>
-              <Td>{index + 1}</Td>
-              <Td>{score.score}</Td>
-              <Td>{score.rating}</Td>
-              <Td>{score.slope}</Td>
-              <Td>
-                <Button onClick={() => removeScore(index)}>X</Button>
-              </Td>
-            </tr>
-          ))}
+          {scores
+            .map((score, index) => (
+              <tr key={'score-' + index}>
+                <Td>{index + 1}</Td>
+                <Td>{score.score}</Td>
+                <Td>{score.rating}</Td>
+                <Td>{score.slope}</Td>
+                <Td>
+                  <Button onClick={() => removeScore(index)}>X</Button>
+                </Td>
+              </tr>
+            ))
+            .reverse()}
         </tbody>
       </table>
     </Div>
