@@ -10,17 +10,14 @@ const Handi = styled.span`
   font-weight: bold;
 `;
 
-export const Handicap = ({ handicap }) => {
-  if (handicap == null) {
-    return <Div>Enter at least one score and as many as 20.</Div>;
-  } else {
-    return (
-      <Div>
-        <span>
-          {'Your handicap is approximately: '}
-          <Handi>{('' + handicap).replace('-', '+')}</Handi>
-        </span>
-      </Div>
-    );
-  }
-};
+export const Handicap = ({ handicap }) =>
+  handicap == null ? (
+    <Div>Enter at least one score and as many as 20.</Div>
+  ) : (
+    <Div>
+      <span>
+        {'Your handicap is approximately: '}
+        <Handi>{('' + handicap).replace('-', '+')}</Handi>
+      </span>
+    </Div>
+  );

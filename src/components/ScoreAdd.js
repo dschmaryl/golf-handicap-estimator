@@ -21,36 +21,20 @@ const Button = styled.button`
 `;
 
 export class ScoreAdd extends React.Component {
-  constructor() {
-    super();
-    this.handleChange = this.handleChange.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.addScore = this.addScore.bind(this);
-    this.state = { score: '', rating: '', slope: '' };
-  }
+  state = { score: '', rating: '', slope: '' };
 
-  handleChange(event) {
-    switch (event.target.name) {
-      case 'Score':
-        this.setState({ score: event.target.value });
-        break;
-      case 'Rating':
-        this.setState({ rating: event.target.value });
-        break;
-      case 'Slope':
-        this.setState({ slope: event.target.value });
-        break;
-      default:
-    }
-  }
+  handleChange = event => {
+    const {
+      target: { value, name }
+    } = event;
+    this.setState({ [name]: value });
+  };
 
-  handleKeyDown(event) {
-    if (event.keyCode === 13) {
-      this.addScore();
-    }
-  }
+  handleKeyDown = event => {
+    if (event.keyCode === 13) this.addScore();
+  };
 
-  addScore() {
+  addScore = () => {
     const asNum = num => (isNaN(num) ? '' : num);
 
     const score = asNum(parseInt(this.state.score, 10));
@@ -65,32 +49,28 @@ export class ScoreAdd extends React.Component {
       this.setState({ score: '' });
       this.props.addScore(score, rating, slope);
     }
-  }
+  };
 
-  renderInput(name, value, placeholder) {
-    return (
-      <span>
-        <Label>{name}:</Label>
-        <Input
-          type="text"
-          name={name}
-          value={value}
-          placeholder={placeholder}
-          onKeyDown={this.handleKeyDown}
-          onChange={this.handleChange}
-        />
-      </span>
-    );
-  }
+  renderInput = (label, value, placeholder) => (
+    <span>
+      <Label>{label}:</Label>
+      <Input
+        type="text"
+        name={label.toLowerCase()}
+        value={value}
+        placeholder={placeholder}
+        onKeyDown={this.handleKeyDown}
+        onChange={this.handleChange}
+      />
+    </span>
+  );
 
-  render() {
-    return (
-      <div>
-        {this.renderInput('Score', this.state.score)}
-        {this.renderInput('Rating', this.state.rating, '72')}
-        {this.renderInput('Slope', this.state.slope, '113')}
-        <Button onClick={this.addScore}>Add</Button>
-      </div>
-    );
-  }
+  render = () => (
+    <div>
+      {this.renderInput('Score', this.state.score)}
+      {this.renderInput('Rating', this.state.rating, '72')}
+      {this.renderInput('Slope', this.state.slope, '113')}
+      <Button onClick={this.addScore}>Add</Button>
+    </div>
+  );
 }

@@ -21,37 +21,34 @@ const Button = styled.button`
   margin: auto;
 `;
 
-export const ScoreList = ({ scores, removeScore }) => {
-  if (scores.length === 0) {
-    return <Div>no scores entered yet</Div>;
-  } else {
-    return (
-      <Div>
-        <table>
-          <thead>
-            <tr>
-              <Th>Round</Th>
-              <Th>Score</Th>
-              <Th>Rating</Th>
-              <Th>Slope</Th>
-              <Th>Delete</Th>
+export const ScoreList = ({ scores, removeScore }) =>
+  scores.length === 0 ? (
+    <Div>no scores entered yet</Div>
+  ) : (
+    <Div>
+      <table>
+        <thead>
+          <tr>
+            <Th>Round</Th>
+            <Th>Score</Th>
+            <Th>Rating</Th>
+            <Th>Slope</Th>
+            <Th>Delete</Th>
+          </tr>
+        </thead>
+        <tbody>
+          {scores.map((score, index) => (
+            <tr key={'score-' + index}>
+              <Td>{index + 1}</Td>
+              <Td>{score.score}</Td>
+              <Td>{score.rating}</Td>
+              <Td>{score.slope}</Td>
+              <Td>
+                <Button onClick={() => removeScore(index)}>X</Button>
+              </Td>
             </tr>
-          </thead>
-          <tbody>
-            {scores.map((score, index) => (
-              <tr key={'score-' + index}>
-                <Td>{index + 1}</Td>
-                <Td>{score.score}</Td>
-                <Td>{score.rating}</Td>
-                <Td>{score.slope}</Td>
-                <Td>
-                  <Button onClick={() => removeScore(index)}>X</Button>
-                </Td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </Div>
-    );
-  }
-};
+          ))}
+        </tbody>
+      </table>
+    </Div>
+  );
