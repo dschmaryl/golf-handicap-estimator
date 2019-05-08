@@ -10,8 +10,10 @@ const Handi = styled.span`
   font-weight: bold;
 `;
 
-export const Handicap = ({ handicap }) =>
-  handicap == null ? (
+type HandicapProps = { anyRounds: boolean; handicap: number };
+
+export const Handicap: React.FC<HandicapProps> = ({ anyRounds, handicap }) =>
+  !anyRounds ? (
     <Div>Enter at least one score and as many as 20.</Div>
   ) : (
     <Div>

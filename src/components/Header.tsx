@@ -14,7 +14,7 @@ const Anchor = styled.a`
   }
 `;
 
-export const Header = () => (
+export const Header: React.FC = () => (
   <Head>
     <h1>Golf Handicap Estimator</h1>
     <p>
@@ -29,9 +29,9 @@ export const Header = () => (
       course, or you can look them up at the{' '}
       <Anchor href="https://ncrdb.usga.org">
         National Course Rating Database
-      </Anchor>. Using the correct rating and slope is important for the
-      handicap to be accurate, but the average rating (72) and slope (113) could
-      be used.
+      </Anchor>
+      . Using the correct rating and slope is important for the handicap to be
+      accurate, but the average rating (72) and slope (113) could be used.
     </p>
   </Head>
 );

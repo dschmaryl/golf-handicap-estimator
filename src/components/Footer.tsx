@@ -13,7 +13,7 @@ const Anchor = styled.a`
   }
 `;
 
-export const Footer = () => (
+export const Footer: React.FC = () => (
   <Foot>
     <Anchor href="https://github.com/dschmaryl/golf-handicap-estimator">
       Click here to see it on GitHub.

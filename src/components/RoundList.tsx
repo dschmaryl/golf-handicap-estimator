@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Round, Rounds } from '../types';
+
 const Div = styled.div`
   padding-top: 30px;
 `;
@@ -21,8 +23,10 @@ const Button = styled.button`
   margin: auto;
 `;
 
-export const ScoreList = ({ scores, removeScore }) =>
-  scores.length === 0 ? (
+type RoundListProps = { rounds: Rounds; removeRound: Function };
+
+export const RoundList: React.FC<RoundListProps> = ({ rounds, removeRound }) =>
+  rounds.length === 0 ? (
     <Div>no scores entered yet</Div>
   ) : (
     <Div>
@@ -37,15 +41,15 @@ export const ScoreList = ({ scores, removeScore }) =>
           </tr>
         </thead>
         <tbody>
-          {scores
-            .map((score, index) => (
-              <tr key={'score-' + index}>
+          {rounds
+            .map((round: Round, index: number) => (
+              <tr key={'round-' + index}>
                 <Td>{index + 1}</Td>
-                <Td>{score.score}</Td>
-                <Td>{score.rating}</Td>
-                <Td>{score.slope}</Td>
+                <Td>{round.score}</Td>
+                <Td>{round.rating}</Td>
+                <Td>{round.slope}</Td>
                 <Td>
-                  <Button onClick={() => removeScore(index)}>X</Button>
+                  <Button onClick={() => removeRound(index)}>X</Button>
                 </Td>
               </tr>
             ))

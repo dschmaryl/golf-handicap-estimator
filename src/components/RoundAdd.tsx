@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Round } from '../types';
+
 const Label = styled.label`
   font-weight: bold;
   padding-left: 4px;
@@ -20,38 +22,42 @@ const Button = styled.button`
   width: 50px;
 `;
 
-export class ScoreAdd extends React.Component {
+type Props = { addRound: Function };
+
+export class RoundAdd extends React.Component<Props> {
   state = { score: '', rating: '', slope: '' };
 
-  handleChange = event => {
+  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const {
       target: { value, name }
     } = event;
     this.setState({ [name]: value });
   };
 
-  handleKeyDown = event => {
-    if (event.keyCode === 13) this.addScore();
+  handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.keyCode === 13) this.addRound();
   };
 
-  addScore = () => {
-    const asNum = num => (isNaN(num) ? '' : num);
+  addRound = () => {
+    const asNumString = (numString: string) =>
+      isNaN(parseFloat(numString)) ? '' : numString;
 
-    const score = asNum(parseInt(this.state.score, 10));
+    const score = parseInt(asNumString(this.state.score), 10);
     const rating = this.state.rating
-      ? asNum(parseFloat(this.state.rating))
+      ? parseFloat(asNumString(this.state.rating))
       : 72;
     const slope = this.state.slope
-      ? asNum(parseInt(this.state.slope, 10))
+      ? parseInt(asNumString(this.state.slope), 10)
       : 113;
 
     if (50 <= score && score <= 200) {
       this.setState({ score: '' });
-      this.props.addScore(score, rating, slope);
+      const round: Round = { score, rating, slope };
+      this.props.addRound(round);
     }
   };
 
-  renderInput = (label, value, placeholder) => (
+  renderInput = (label: string, value: string, placeholder: string) => (
     <span>
       <Label>{label}:</Label>
       <Input
@@ -67,10 +73,10 @@ export class ScoreAdd extends React.Component {
 
   render = () => (
     <div>
-      {this.renderInput('Score', this.state.score)}
+      {this.renderInput('Score', this.state.score, '')}
       {this.renderInput('Rating', this.state.rating, '72')}
       {this.renderInput('Slope', this.state.slope, '113')}
-      <Button onClick={this.addScore}>Add</Button>
+      <Button onClick={this.addRound}>Add</Button>
     </div>
   );
 }
