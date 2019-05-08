@@ -1,15 +1,15 @@
 {
-  "short_name": "golf-handicap-estimator",
-  "name": "Golf Handicap Estimator",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
-      "src": "favicon.png",
-      "sizes": "1024x1024",
-      "type": "image/png"
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
     }
   ],
-  "start_url": "./index.html",
+  "start_url": ".",
   "display": "standalone",
-  "theme_color": "#555555",
-  "background_color": "#FFFFFF"
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
 }
