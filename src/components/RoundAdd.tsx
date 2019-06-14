@@ -12,7 +12,7 @@ const Input = styled.input`
   text-align: right;
   padding: 2px 4px 2px 0;
   margin: 0 10px 0 6px;
-  width: 32px;
+  width: 36px;
 `;
 
 const Button = styled.button`
