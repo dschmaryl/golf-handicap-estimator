@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,KACE,eAAgB,CAChB,WAAY,CACZ,WAAY,CACZ,gCAAkC,CAClC,cAAe,CACf,eAAgB,CAChB,UACF","file":"main.c1335445.chunk.css","sourcesContent":["body {\n  max-width: 740px;\n  margin: auto;\n  padding: 6px;\n  font-family: Helvetica, sans-serif;\n  font-size: 16px;\n  line-height: 1.6;\n  color: #555;\n}\n"]}

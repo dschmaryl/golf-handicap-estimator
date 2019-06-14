@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.0/workbox-sw.js");
 
 importScripts(
-  "/golf-handicap-estimator/precache-manifest.843ef91a9220770585aaa4de256ec174.js"
+  "/golf-handicap-estimator/precache-manifest.852ab630aadf496dc5ef4536d73d531e.js"
 );
 
 self.addEventListener('message', (event) => {

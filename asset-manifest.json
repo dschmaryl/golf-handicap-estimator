@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/golf-handicap-estimator/static/css/main.c1335445.chunk.css",
-    "main.js": "/golf-handicap-estimator/static/js/main.51735081.chunk.js",
-    "main.js.map": "/golf-handicap-estimator/static/js/main.51735081.chunk.js.map",
+    "main.css": "/golf-handicap-estimator/static/css/main.f55716fb.chunk.css",
+    "main.js": "/golf-handicap-estimator/static/js/main.c9993e56.chunk.js",
+    "main.js.map": "/golf-handicap-estimator/static/js/main.c9993e56.chunk.js.map",
     "runtime~main.js": "/golf-handicap-estimator/static/js/runtime~main.67a2f0cd.js",
     "runtime~main.js.map": "/golf-handicap-estimator/static/js/runtime~main.67a2f0cd.js.map",
     "static/js/2.a278b9b3.chunk.js": "/golf-handicap-estimator/static/js/2.a278b9b3.chunk.js",
     "static/js/2.a278b9b3.chunk.js.map": "/golf-handicap-estimator/static/js/2.a278b9b3.chunk.js.map",
     "index.html": "/golf-handicap-estimator/index.html",
-    "precache-manifest.843ef91a9220770585aaa4de256ec174.js": "/golf-handicap-estimator/precache-manifest.843ef91a9220770585aaa4de256ec174.js",
+    "precache-manifest.852ab630aadf496dc5ef4536d73d531e.js": "/golf-handicap-estimator/precache-manifest.852ab630aadf496dc5ef4536d73d531e.js",
     "service-worker.js": "/golf-handicap-estimator/service-worker.js",
-    "static/css/main.c1335445.chunk.css.map": "/golf-handicap-estimator/static/css/main.c1335445.chunk.css.map"
+    "static/css/main.f55716fb.chunk.css.map": "/golf-handicap-estimator/static/css/main.f55716fb.chunk.css.map"
   }
 }
