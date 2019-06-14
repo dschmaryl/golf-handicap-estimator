@@ -61,7 +61,7 @@ export class RoundAdd extends React.Component<Props> {
     <span>
       <Label>{label}:</Label>
       <Input
-        type="text"
+        type="number"
         name={label.toLowerCase()}
         value={value}
         placeholder={placeholder}
