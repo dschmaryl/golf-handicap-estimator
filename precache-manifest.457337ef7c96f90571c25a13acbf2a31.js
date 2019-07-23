@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4364059588805129d2fcd05f242bff0a",
+    "revision": "cb5ea591130bdf785892cec4009e5e65",
     "url": "/golf-handicap-estimator/index.html"
   },
   {
-    "revision": "14d37044d94bce997c1a",
+    "revision": "5a925fba8f06dcab3d8c",
     "url": "/golf-handicap-estimator/static/css/main.f55716fb.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/golf-handicap-estimator/static/js/2.ea7ca4db.chunk.js"
   },
   {
-    "revision": "14d37044d94bce997c1a",
-    "url": "/golf-handicap-estimator/static/js/main.7d503c79.chunk.js"
+    "revision": "5a925fba8f06dcab3d8c",
+    "url": "/golf-handicap-estimator/static/js/main.60c6b652.chunk.js"
   },
   {
     "revision": "b640c43e9a0e217ded52",
