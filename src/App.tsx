@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import { Header } from './components/Header';
 import Handicap from './containers/Handicap';
@@ -7,11 +7,11 @@ import RoundList from './containers/RoundList';
 import { Footer } from './components/Footer';
 
 export const App: React.FC = () => (
-  <div>
+  <Fragment>
     <Header />
     <Handicap />
     <RoundAdd />
     <RoundList />
     <Footer />
-  </div>
+  </Fragment>
 );
