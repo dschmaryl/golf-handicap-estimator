@@ -1,12 +1,5 @@
-export interface Round {
-  score: number;
-  rating: number;
-  slope: number;
-}
+export type Round = { score: number; rating: number; slope: number };
 
 export type Rounds = Round[];
 
-export interface State {
-  rounds: Rounds;
-  handicap: number;
-}
+export type State = { rounds: Rounds; handicap: number };

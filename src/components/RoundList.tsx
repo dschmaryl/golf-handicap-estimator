@@ -23,10 +23,7 @@ const Button = styled.button`
   margin: auto;
 `;
 
-interface PropTypes {
-  rounds: Rounds;
-  removeRound: Function;
-}
+type PropTypes = { rounds: Rounds; removeRound: Function };
 
 export const RoundList: React.FC<PropTypes> = ({ rounds, removeRound }) =>
   rounds.length === 0 ? (

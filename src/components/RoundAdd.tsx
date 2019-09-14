@@ -22,9 +22,7 @@ const Button = styled.button`
   width: 50px;
 `;
 
-interface PropTypes {
-  addRound: Function;
-}
+type PropTypes = { addRound: Function };
 
 export class RoundAdd extends React.Component<PropTypes> {
   state = { score: '', rating: '', slope: '' };

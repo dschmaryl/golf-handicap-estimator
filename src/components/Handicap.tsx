@@ -10,10 +10,7 @@ const Handi = styled.span`
   font-weight: bold;
 `;
 
-interface PropTypes {
-  anyRounds: boolean;
-  handicap: number;
-}
+type PropTypes = { anyRounds: boolean; handicap: number };
 
 export const Handicap: React.FC<PropTypes> = ({ anyRounds, handicap }) =>
   !anyRounds ? (
