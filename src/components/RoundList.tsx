@@ -23,9 +23,12 @@ const Button = styled.button`
   margin: auto;
 `;
 
-type RoundListProps = { rounds: Rounds; removeRound: Function };
+interface PropTypes {
+  rounds: Rounds;
+  removeRound: Function;
+}
 
-export const RoundList: React.FC<RoundListProps> = ({ rounds, removeRound }) =>
+export const RoundList: React.FC<PropTypes> = ({ rounds, removeRound }) =>
   rounds.length === 0 ? (
     <Div>no scores entered yet</Div>
   ) : (
@@ -43,7 +46,7 @@ export const RoundList: React.FC<RoundListProps> = ({ rounds, removeRound }) =>
         <tbody>
           {rounds
             .map((round: Round, index: number) => (
-              <tr key={'round-' + index}>
+              <tr key={index}>
                 <Td>{index + 1}</Td>
                 <Td>{round.score}</Td>
                 <Td>{round.rating}</Td>

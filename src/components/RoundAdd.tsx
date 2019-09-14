@@ -22,9 +22,11 @@ const Button = styled.button`
   width: 50px;
 `;
 
-type Props = { addRound: Function };
+interface PropTypes {
+  addRound: Function;
+}
 
-export class RoundAdd extends React.Component<Props> {
+export class RoundAdd extends React.Component<PropTypes> {
   state = { score: '', rating: '', slope: '' };
 
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,11 +41,11 @@ export class RoundAdd extends React.Component<Props> {
   };
 
   addRound = () => {
-    const asNumString = (numString: string) =>
+    const asNumString: Function = (numString: string) =>
       isNaN(parseFloat(numString)) ? '' : numString;
 
-    const score = parseInt(asNumString(this.state.score), 10);
-    const rating = this.state.rating
+    const score: number = parseInt(asNumString(this.state.score), 10);
+    const rating: number = this.state.rating
       ? parseFloat(asNumString(this.state.rating))
       : 72;
     const slope = this.state.slope

@@ -2,8 +2,8 @@ import { Reducer } from 'redux';
 import { Rounds, State } from './types';
 
 const calcHandicap = (rounds: Rounds) => {
-  const numOfDiffs = Math.max(1, Math.floor(rounds.length / 2));
-  const diffsSum = rounds
+  const numOfDiffs: number = Math.max(1, Math.floor(rounds.length / 2));
+  const diffsSum: number = rounds
     .map(s => ((s.score - s.rating) * 113) / s.slope)
     .sort((a, b) => a - b)
     .slice(0, numOfDiffs)
@@ -16,9 +16,10 @@ const calcHandicap = (rounds: Rounds) => {
   );
 };
 
-const initialState: State = { rounds: [], handicap: 50 };
-
-export const reducer: Reducer = (state = initialState, action) => {
+export const reducer: Reducer = (
+  state: State = { rounds: [], handicap: 50 },
+  action
+) => {
   switch (action.type) {
     case 'ADD_ROUND': {
       const rounds: Rounds = [...state.rounds.slice(-19), { ...action.round }];
@@ -26,7 +27,7 @@ export const reducer: Reducer = (state = initialState, action) => {
     }
 
     case 'REMOVE_ROUND': {
-      const rounds = [
+      const rounds: Rounds = [
         ...state.rounds.slice(0, action.index),
         ...state.rounds.slice(action.index + 1)
       ];
